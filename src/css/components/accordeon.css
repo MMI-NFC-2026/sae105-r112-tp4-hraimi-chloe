@@ -55,7 +55,7 @@
 .accordeon details[open]::details-content {
   max-width: 240px;
   opacity: 1;
-
+}
 
 .accordeon .contenu {
   padding-top: 10px;
