@@ -32,6 +32,20 @@
   display: none;
 }
 
+.accordeon summary::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 36px solid #c97e7e;
+  transition: transform 0.25s ease, border-left-color 0.25s ease;
+}
+
+.accordeon > details[open] > summary::after {
+  transform: rotate(90deg);
+  border-left-color: #f4a3a8;
+}
 /* Taille fixe image*/
 .accordeon summary img {
   display: block;
@@ -49,6 +63,7 @@
 .accordeon details::details-content {
   max-width: 0px;
   opacity: 0;
+  overflow: hidden;
   transition:
     max-width 0.35s ease, 
     opacity 0.25s ease,
@@ -62,12 +77,4 @@
 
 .accordeon .contenu {
   padding-top: 10px;
-}
-
-.accordeon > details > summary {
-  list-style: none;
-}
-.accordeon > details > summary::marker,
-.accordeon > details > summary::-webkit-details-marker {
-  display: none;
 }
