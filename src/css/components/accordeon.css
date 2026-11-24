@@ -8,13 +8,14 @@
 
 .accordeon {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 }
 
 .accordeon details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
@@ -22,27 +23,29 @@
 .accordeon summary {
   list-style: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .accordeon summary::-webkit-details-marker {
   display: none;
 }
 
-/* Taille fixe : l'image ne s'agrandit pas au clic */
+/* Taille fixe image*/
 .accordeon summary img {
   display: block;
-  width: 102px; /* Ajuste selon la taille voulue */
+  width: 102px; 
   height: auto;
   border-radius: 10px;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Effet au survol en pur CSS */
+/* Effet au survol */
 .accordeon details:hover summary img {
   opacity: 0.85;
 }
 
-/* Texte caché / révélé avec ::details-content + content-visibility + allow-discrete */
 .accordeon details::details-content {
   max-width: 0px;
   opacity: 0;
@@ -59,4 +62,12 @@
 
 .accordeon .contenu {
   padding-top: 10px;
+}
+
+.accordeon > details > summary {
+  list-style: none;
+}
+.accordeon > details > summary::marker,
+.accordeon > details > summary::-webkit-details-marker {
+  display: none;
 }
